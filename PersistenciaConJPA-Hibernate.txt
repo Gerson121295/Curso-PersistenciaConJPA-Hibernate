@@ -238,6 +238,15 @@ Cómo utilizar EntityManager para conservar entidades en la base de datos.
 -- Organizando el codigo
 en la carpeta tienda crear una clase llamada ProductoDao y establecer el paquete com.latam.alura.tienda.dao
 
+-- Mas mapeamientos
+- ¿Cuáles tipos de atributos podemos mapear sin la necesidad de configuraciones adicionales vía anotaciones JPA?
+Los tipos primitivos, atributos del tipo String y algunas clases de Java, como LocalDate y BigDecimal.
+Esos tipos pueden ser mapeados automáticamente, sin la necesidad de configuraciones adicionales.
+
+--Mapeando Relacionamientos:
+
+
+
 
 
 

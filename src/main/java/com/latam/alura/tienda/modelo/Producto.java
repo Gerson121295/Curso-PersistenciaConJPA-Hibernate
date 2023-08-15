@@ -1,8 +1,11 @@
 package com.latam.alura.tienda.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +30,20 @@ public class Producto { //El nombre de la clase tiene que ser igual que la tabla
 	private String nombre;
 	private String descripcion;
 	private BigDecimal precio;
+	
+	private LocalDate fechaDeRegistro=LocalDate.now(); //El método estático LocalDate.now, con eso nosotros aseguramos que al ser instanciado el producto se esté guardando la fecha actual en la que se está instanciando.
+	
+	@Enumerated(EnumType.STRING) //Vamos a guardar la palabra como string. Usamos la anotación de JPA @Enumerate. Esa anotación tiene un parámetro (EnumType) del tipo string. Ella una serie de valores y nosotros vamos a usar el string, que nos va a permitir guardar la palabra que está siendo registrada en el enumerador. //Con esto guarda la palabra y no la posicion de la palabra en el arreglo.
+	private Categoria categoria; //Tipo Categoria, sera una clase. //No tener creada la clase Categoria da un error entonces: Clic derecho sobre la cateroria y clic en Create enum 'Categoria'
+	
+	
+	// En el constructor no se agrego id ya que se genera automaticamente y fechaDeRegistro se agrega un valor al momento de crear el producto
+	public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.categoria = categoria;
+	}
 	
 	
 	//Getters and Setters

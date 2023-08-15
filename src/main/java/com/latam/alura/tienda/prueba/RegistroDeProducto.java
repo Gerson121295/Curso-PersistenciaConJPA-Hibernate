@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
 import com.latam.alura.tienda.utils.JPAUtils;
 
@@ -14,12 +15,8 @@ public class RegistroDeProducto {
 	
 	public static void main(String[] args) {
 		
-		Producto celular = new Producto();
-		
-		celular.setNombre("Samsung");
-		celular.setDescripcion("telefono usado");
-		celular.setPrecio(new BigDecimal("1000")); //como el tipo del precio era BigDecimal se debio importar para escribir el precio
-		
+		Producto celular = new Producto("Samsung", "telefono usado", new BigDecimal("1000"), Categoria.CELULARES); //como el tipo del precio era BigDecimal se debio importar para escribir el precio
+			 
 		EntityManager em = JPAUtils.getEntityManager();	 //Metodo getEntityManager creado en JPAUtils	
 		ProductoDao productoDao = new ProductoDao(em); //se le pasa el parametro em que es el EntityManager
 		
