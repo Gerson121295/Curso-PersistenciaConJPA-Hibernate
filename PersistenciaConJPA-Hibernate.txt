@@ -234,6 +234,9 @@ Cómo configurar JPA a través del archivo de persistencia.xml;
 Cómo mapear entidades JPA;
 Cómo utilizar EntityManager para conservar entidades en la base de datos.
 
+03 - Mapeando Entidades
+-- Organizando el codigo
+en la carpeta tienda crear una clase llamada ProductoDao y establecer el paquete com.latam.alura.tienda.dao
 
 
 
