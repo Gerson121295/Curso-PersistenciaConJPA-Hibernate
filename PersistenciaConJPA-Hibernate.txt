@@ -203,6 +203,36 @@ nuestra clase para compararlos con el modelo en la base de datos, entonces por
 default Hibernate entiende y JPA, entiende que el nombre de la clase es el mismo
  nombre que existe para la tabla.
 
+-- ¿Cuál es la mejor definición de una entidad en JPA?
+Es una clase que hace el mapeamiento de una tabla del banco de datos.
+Una entidad JPA funciona como un espejo de una tabla en el banco de datos.
+
+
+-- Propiedades del archivo Persistence
+De las opciones abajo seleccione las 2 propiedades obligatorias.
+- Necesitamos un driver que nos permita realizar la conexión con la base de datos.
+<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+
+- La url le indica a la api donde se encuentra almacenada la base de datos.
+<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:tienda"/>
+
+** Persistiendo una entidad 
+Vamos a crear una clase main donde vamos a instanciar el modelo <<Producto>> y 
+el <<EntityManager> que nos va a permitir comunicarnos con la base de datos
+
+Seleccionamos el proyecto tienda y clic en crear una nueva clase, el nombre de la
+clase es: RegistroDeProducto y el package es: com.latam.alura.tienda.prueba
+Otra forma era: Seleccionar tienda y crear un package llamada: 
+com.latam.alura.tienda.prueba y dentro de este paquete crear la clase: RegistroDeProducto
+
+- ¿Cuándo debemos iniciar y comitar una transacción al persistir una unidad?
+Al realizar operaciones de escrita en la base de datos, como insert, update y delete.
+Operaciones de escrita exigen el uso de transacciones.
+
+- En esta lección, aprendiste:
+Cómo configurar JPA a través del archivo de persistencia.xml;
+Cómo mapear entidades JPA;
+Cómo utilizar EntityManager para conservar entidades en la base de datos.
 
 
 

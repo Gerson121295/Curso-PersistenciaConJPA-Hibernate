@@ -21,6 +21,17 @@
     		<property name="javax.persistence.jdbc.user" value="sa"/>
     		<property name="javax.persistence.jdbc.password" value=""/>
 
+		
+			<property name="hibernate.show_sql" value="true"/>
+			
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update"/> -->
+			
+			<!--   <property name="hibernate.show_sql" value="create-drop"/>   -->  		
+			<!-- "create" - Crea la BD, tabla las columnas y guarda los valores -->
+			<!-- "create-drop" - Crea la BD, tablas y columnas luego que halla finalizado eliminara los valores creados de la BD  -->
+			<!-- "validate" - No crea ni actualiza los valores, solo verifica que los valores sean correctos y que existan  -->
+			<!--  "update" - Crea la tabla en caso de que no exista y en caso de que exista realiza las operaciones y si falta un nuevo elemento el lo crea. -->
+			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/>        
         
