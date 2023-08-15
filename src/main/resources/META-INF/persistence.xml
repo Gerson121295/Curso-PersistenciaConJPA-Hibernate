@@ -6,7 +6,14 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
 	<persistence-unit name="tienda" transaction-type="RESOURCE_LOCAL">
-	<!-- <class>br.com.alura.loja.modelo.Produto</class> -->  <!--opcional-->
+	
+	<!-- Mapeo de las entidades:
+	Si se mapean una de las de las entidades tendrían que mapear todas las entidades, no podrían mapear una y otra no. 
+	Hibernate, por default, si no se colocan esta etiqueta, él mapea todas las entidades que tengan la anotación @Entity.
+	 -->
+	 
+	<!--  <class>br.com.alura.loja.modelo.Produto</class>  -->  <!-- Mapeo de la entidad es opcional -->
+	
         <properties>
         
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

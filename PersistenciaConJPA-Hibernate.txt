@@ -174,6 +174,37 @@ una base de datos utilizada por la aplicación
 - Ese es justamente el objetivo de la tag <persistence-unit>.
 
 
+* Luego de haber creado el archivo persistence.xml, crearemos la primera entidad 
+dentro del package <<com.latam.alura.tienda.modelo>> con el nombre <<Producto>>
+
+*** Mapeando una entidad #1
+- Tablas /Entidades
+
+Productos
+--------------------
+id bigint
+Nombre varchar
+Descripcion varchar
+Precio decimal
+
+	ORM
+* Tabla == Clases
+* Columnas == Atributos
+* Filas == Objetos
+
+Ir a la carpeta principal src/main/java y crear una clase llamada Producto.
+Agregar en Source folder: com.latam.alura.tienda.modelo para crear la estructura
+ y la clase Producto se guarde en la carpeta modelo.  O otra forma es seleccionar
+src/main/java y crear un nuevo paquete llamado: com.latam.alura.tienda.modelo y
+dentro de este paquete guardar la clase Producto.
+
+Hibernate y JPA, ellos realizan un mapeamento de los elementos existentes en 
+nuestra clase para compararlos con el modelo en la base de datos, entonces por 
+default Hibernate entiende y JPA, entiende que el nombre de la clase es el mismo
+ nombre que existe para la tabla.
+
+
+
 
 
 
