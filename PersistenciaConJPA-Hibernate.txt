@@ -297,9 +297,56 @@ En el código anterior, merge acabó siendo indiferente, pues la entidad ya esta
 Traer los registros deseados con estado managed.
 Pero en una diferente ubicación en memoria, por lo que tenemos que reasignar la variable que se encuentra como detached.
 
+- Estado Delete en la entidad:
+Analice el siguiente código e indique cuál es el resultado esperado:
+
+em.getTransaction().begin();
+Producto producto = em.find(Producto.class, 1l);
+producto.setDescripcion(“Teste 1”);
+em.flush();
+em.clear();
+em.remove(producto);
+em.getTransaction().commit();
+em.close();
+
+Respuesta: Una exception será lanzada al tentar remover la entidad producto.
+La entidad producto estaba en estado Detached al ser removida, algo que JPA no permite.
 
 
+Para eso vimos el esquema gráfico donde comenzamos por el estado transiente que tiene una entidad 
+al ser instanciada, luego pasamos al estado Managed utilizando el método persist() de JPA hasta 
+el momento que sincronizamos la información con la base de datos utilizando el método 
+flush() o commit() de JPA.
 
+Estas transiciones de estados fueron realizadas en el DAO (Data Access Object) de la clase 
+Producto y de la clase Categoria donde configuramos los métodos para persistir una entidad, 
+para actualizar o modificar una entidad ya existente o para eliminar un registro de la base 
+de datos. Nuestro DAO para la clase producto quedó de la siguiente forma 
+al igual que para categoría:
+
+
+public class ProductoDao {
+
+    private EntityManager em;
+
+    public ProductoDao(EntityManager em) {
+        this.em = em;
+    }
+
+    public void guardar(Producto producto) {
+        this.em.persist(producto);
+    }
+
+    public void actualizar(Producto producto) {
+        this.em.merge(producto);
+    }
+
+    public void remover(Producto producto) {
+        categoria=this.em.merge(producto);
+        this.em.remove(producto);
+    }
+
+}
 
 
   

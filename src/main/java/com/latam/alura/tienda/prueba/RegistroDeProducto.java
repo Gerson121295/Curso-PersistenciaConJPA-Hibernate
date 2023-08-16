@@ -42,7 +42,15 @@ public class RegistroDeProducto {
 		//em.merge(celulares); //Crea un nuevo registro //cuando se usa merge se necesita hacer un select para hacer modificaciones en la BD, por lo que se agrega un constructor en la tabla Producto y Categoria.		
 		celulares = em.merge(celulares); //Update del registro se tuvo que reasignar a celulares.
 		celulares.setNombre("SOFTWARE"); //esta no es considerada en los registros. esta fuera. usando commit, con flush arriba y abajo y el merge si lo acepta.
-		em.flush();
+		em.flush(); //entidad en estado manage
+		em.clear(); //detached
+		
+		celulares = em.merge(celulares); //merge trae el valor de la BD a estado managed
+		em.remove(celulares);//borrar el registro se envia la entidad. Borrar debe estar en estado managed(administrado) y debe existir el dato.
+		em.flush(); //sincronizar el valor. Como utilizo el metodo flush en la siguiente linea puedo hacer un rollback, eliminando la ultima transaccion volviendo a tener el valor antes. Si hubiera usado el commit la transaccion hubiera sido definitiva.
+		
+		
+		
 	}
 
 }
