@@ -38,6 +38,9 @@ public class RegistroProducto {
 		List<Producto> productos2 = productoDao.consultaPorNombreDeCategoria("CELULARES");	//enviamos el nombre a buscar
 		productos2.forEach(prod->System.out.println(prod.getNombre()));  //devuelve el nombre
 				
+		//Consultar el precio por medio del nombre
+		BigDecimal precio = productoDao.consultarPrecioPorNombreDeProducto("Samsung");
+		System.out.println(precio);
 		
 		
 	}

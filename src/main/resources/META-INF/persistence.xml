@@ -23,6 +23,8 @@
 
 		
 			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/> <!-- Para dar estilo a nuestras consultas que se ven en consola -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/> 
 			
 			<!-- <property name="hibernate.hbm2ddl.auto" value="update"/> -->
 			
@@ -33,7 +35,7 @@
 			<!--  "update" - Crea la tabla en caso de que no exista y en caso de que exista realiza las operaciones y si falta un nuevo elemento el lo crea. -->
 			
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-			<property name="hibernate.hbm2ddl.auto" value="update"/>        
+			       
         
         </properties>
     </persistence-unit>

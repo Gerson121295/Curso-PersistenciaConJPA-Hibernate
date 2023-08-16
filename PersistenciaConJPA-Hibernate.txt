@@ -349,7 +349,13 @@ public class ProductoDao {
 }
 
 
-  
+05 -  Consultas con JPQL
+-- Consultando Entidades 
+
+
+https://github.com/alura-cursos/JPA-hibernate-Alura/tree/stage-final
+
+
 
 
 
