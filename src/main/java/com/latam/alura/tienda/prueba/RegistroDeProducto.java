@@ -14,6 +14,7 @@ import com.latam.alura.tienda.utils.JPAUtils;
 
 public class RegistroDeProducto {
 	
+	//Practica ejemplo del: Ciclo de vida de la entidad
 	public static void main(String[] args) {
 		Categoria celulares = new Categoria("CELULARES");
 		

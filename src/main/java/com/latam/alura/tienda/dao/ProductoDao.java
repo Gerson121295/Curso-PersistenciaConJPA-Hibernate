@@ -1,5 +1,7 @@
 package com.latam.alura.tienda.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import com.latam.alura.tienda.modelo.Producto;
@@ -38,5 +40,19 @@ public class ProductoDao {
         this.em.remove(producto);
     }
 	*/
+    
+    //Consulta por id
+    public Producto consultaPorId(Long id) {
+    	return em.find(Producto.class, id);
+    }
 	
+    //Consultar todos los elementos(productos) de la tabla Producto
+    public List<Producto> consultarTodos(){
+    	String jpql = "SELECT P FROM Producto AS P "; //en JPQL no se utiliza el * si no la letra del alias definido: SELECT * FROM Producto P;  //lista a traves de JPQL (Java Persistence Query Language)
+    	return em.createQuery(jpql, Producto.class).getResultList();
+    }
 }
+
+
+
+
