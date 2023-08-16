@@ -244,6 +244,22 @@ Los tipos primitivos, atributos del tipo String y algunas clases de Java, como L
 Esos tipos pueden ser mapeados automáticamente, sin la necesidad de configuraciones adicionales.
 
 --Mapeando Relacionamientos:
+ - Aprendimos a utilizar la anotación @ManyToOne para indicar la cardinalidad de una relación. 
+Cual es la cardinalidad default asumida por JPA, en el caso de un atributo que representa 
+una relación y no tiene anotaciones?
+Es obligatorio agregar alguna anotación de cardinalidad en todos los atributos que representan relaciones.
+PA no asume una cardinalidad default cuando no colocamos anotaciones.
+
+
+ Producto		 
+-------------			  categoria
+id  bigint			  ------------
+categoria_id int --@ManyToOne-->  id  bigint    --@ManyToOne  Muchos producto tienen una categoria
+name  varchar			  name varchar
+descripcion varchar
+precio  varchar		
+
+
 
 
 
