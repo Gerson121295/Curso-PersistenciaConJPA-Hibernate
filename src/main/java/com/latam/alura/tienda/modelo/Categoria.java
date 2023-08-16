@@ -24,6 +24,9 @@ public class Categoria {
 		this.nombre = nombre;
 	}
 	
+	public Categoria() { //Para probar el Flush de RegistroDePersonas	
+	}
+	
 	
 	//Getters and Setters
 	public Long getId() {

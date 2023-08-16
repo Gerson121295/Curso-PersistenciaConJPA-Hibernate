@@ -23,6 +23,8 @@ public class CategoriaDao {
 		this.em.persist(categoria);
 	}
 	
-	
+	public void actualizar(Categoria categoria) {
+		this.em.merge(categoria);
+	}
 	
 }

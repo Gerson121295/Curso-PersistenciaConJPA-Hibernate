@@ -38,6 +38,10 @@ public class Producto { //El nombre de la clase tiene que ser igual que la tabla
 	@ManyToOne //Muchos productos tienen una unica categoria. - Con esto relacionamos la entidad producto con Categoria
 	private Categoria categoria; //Tipo Categoria, sera una clase. //No tener creada la clase Categoria da un error entonces: Clic derecho sobre la cateroria y clic en Create enum 'Categoria'
 	
+	public Producto() { //para probar el flush de RegistroDeProducto
+		
+	}
+	
 	
 	// En el constructor no se agrego id ya que se genera automaticamente y fechaDeRegistro se agrega un valor al momento de crear el producto
 	public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {

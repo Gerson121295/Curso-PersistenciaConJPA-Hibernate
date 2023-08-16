@@ -30,14 +30,19 @@ public class RegistroDeProducto {
 		//productoDao.guardar(celular); //Realizar la 1ra. Persistencia. Guarda el producto utilizando ProductoDao
 		
 		em.persist(celulares);
-		celulares.setNombre("CUADERNOS");
+		celulares.setNombre("LIBROS");
 		
-		em.getTransaction().commit(); //obtenemos la transaccion y realizamos un commit, El commit envia los valores que fueron configurados, los envia a la BD
-		em.close();//cerrando la transaccion
+		//em.getTransaction().commit(); //obtenemos la transaccion y realizamos un commit, El commit envia los valores que fueron configurados, los envia a la BD
+		//em.close();//cerrando la transaccion
 		
+		em.flush(); //flush si hay un error permite hacer un rollback
+		em.clear();
 		
-		celulares.setNombre("SOFTWARE"); //esta no es considerada en los registros. esta fuera.
-	
+		//Necesita un constructor vacio para cada entidad Producto y Categoria.
+		//em.merge(celulares); //Crea un nuevo registro //cuando se usa merge se necesita hacer un select para hacer modificaciones en la BD, por lo que se agrega un constructor en la tabla Producto y Categoria.		
+		celulares = em.merge(celulares); //Update del registro se tuvo que reasignar a celulares.
+		celulares.setNombre("SOFTWARE"); //esta no es considerada en los registros. esta fuera. usando commit, con flush arriba y abajo y el merge si lo acepta.
+		em.flush();
 	}
 
 }
