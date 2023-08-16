@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
-	<persistence-unit name="tienda" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="tienda" transaction-type="RESOURCE_LOCAL"><!--  Data de la BD - Por cada BD va un persistence-unit en este caso la BD es tienda. -->
 	
 	<!-- Mapeo de las entidades:
 	Si se mapean una de las de las entidades tendrían que mapear todas las entidades, no podrían mapear una y otra no. 
