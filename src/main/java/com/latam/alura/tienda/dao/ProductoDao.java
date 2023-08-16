@@ -23,6 +23,20 @@ public class ProductoDao {
 		this.em.persist(producto);
 	}
 	
-	
+	public void actualizar(Producto producto) {
+        this.em.merge(producto);
+    }
+
+    public void remover(Producto producto) {
+        producto=this.em.merge(producto);
+        this.em.remove(producto);
+    }
+    
+    /*//code dado
+    public void remover(Producto producto) {
+        categoria=this.em.merge(producto);
+        this.em.remove(producto);
+    }
+	*/
 	
 }
