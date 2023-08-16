@@ -29,6 +29,17 @@ public class RegistroProducto {
 		//Consultar todos los elementos de la tabla producto
 		List<Producto> productos = productoDao.consultarTodos();	
 		productos.forEach(prod->System.out.println(prod.getDescripcion()));
+		
+		//Consulta por nombre
+		List<Producto> productos1 = productoDao.consultaPorNombre("Samsung");	//enviamos el nombre a buscar
+		productos1.forEach(prod->System.out.println(prod.getDescripcion()));  //devuelve la descripcion
+		
+		//Consulta por nombre de Categoria
+		List<Producto> productos2 = productoDao.consultaPorNombreDeCategoria("CELULARES");	//enviamos el nombre a buscar
+		productos2.forEach(prod->System.out.println(prod.getNombre()));  //devuelve el nombre
+				
+		
+		
 	}
 
 	

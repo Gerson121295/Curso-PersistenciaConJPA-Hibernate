@@ -51,6 +51,20 @@ public class ProductoDao {
     	String jpql = "SELECT P FROM Producto AS P "; //en JPQL no se utiliza el * si no la letra del alias definido: SELECT * FROM Producto P;  //lista a traves de JPQL (Java Persistence Query Language)
     	return em.createQuery(jpql, Producto.class).getResultList();
     }
+    
+    //Consulta por Nombre
+    public List<Producto> consultaPorNombre(String nombre){
+    	String jpql = " SELECT P FROM Producto AS P WHERE P.nombre=:nombre"; //si queremos agregar mas parametros a buscar seria asi:  (WHERE  P.nombre=:nombre AND P.descripcion=:descripcion";
+    	return em.createQuery(jpql).setParameter("nombre", nombre).getResultList(); // recibe la posicion("nombre") y se le envia la variable(nombre) que contiene la palabra a buscar, y obtiene una lista de resultados.
+    }
+    
+    //Consulta por nombre de Categoria
+   
+    public List<Producto> consultaPorNombreDeCategoria(String nombre){
+    	String jpql="SELECT p FROM Producto AS p WHERE p.categoria.nombre=:nombre";
+    	return em.createQuery(jpql).setParameter("nombre", nombre).getResultList();
+    }
+    
 }
 
 
